@@ -2,7 +2,7 @@
   <div class="container">
     <div>
       <h1 class="title">
-        user
+        {{$t('测试')}}
       </h1>
     </div>
   </div>
@@ -17,7 +17,7 @@
 
 </script>
 
-<style>
+<style lang="less" scoped>
   .container {
     margin: 0 auto;
     min-height: 100vh;

@@ -40,7 +40,9 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    '@/plugins/element-ui'
+    '@/plugins/element-ui',
+    '@/plugins/custom',
+    '@/plugins/i18n'
   ],
   /*
    ** Nuxt.js dev-modules
@@ -51,19 +53,26 @@ export default {
    */
   modules: [
     '@nuxtjs/axios',
-    '@gauseen/nuxt-proxy'
+    '@nuxtjs/proxy'
   ],
   /*
    ** Build configuration
    */
   build: {
     transpile: [/^element-ui/],
+    vendor: ['vue-i18n'],
     /*
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
   },
-  proxyTable: {
+  router: { // customize nuxt.js router (vue-router).
+    middleware: 'i18n' // middleware all pages of the application
+  },
+  axios: {
+    proxy: true
+  },
+  proxy: {
     '/api/pay': {
       target: 'http://192.168.10.145:8089',
       changeOrigin: true,

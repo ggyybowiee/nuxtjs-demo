@@ -1,5 +1,7 @@
 export const state = () => ({
-  list: []
+  list: [],
+  locales: ['en', 'zh', 'pt', 'es'],
+  locale: 'en'
 })
 
 export const mutations = {
@@ -16,5 +18,10 @@ export const mutations = {
   },
   toggle(state, todo) {
     todo.done = !todo.done
+  },
+  SET_LANG(state, locale) {
+    if (state.locales.indexOf(locale) !== -1) {
+      state.locale = locale
+    }
   }
 }
