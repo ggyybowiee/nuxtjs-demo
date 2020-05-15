@@ -1,7 +1,3 @@
-# bobo
-
-> My hunky-dory Nuxt.js project
-
 ## Build Setup
 
 ```bash
